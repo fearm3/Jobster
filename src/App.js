@@ -1,10 +1,18 @@
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Logo } from "./components";
+import { Landing, Dashboard, Error, Register } from "./pages";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Starter</h1>
-    </div>
+    <BrowserRouter>
+      <Logo />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="landing" element={<Landing />} />
+        <Route path="register" element={<Register />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
